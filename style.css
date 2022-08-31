@@ -50,3 +50,7 @@
   display: inline-block;
   background-color: white;
 }
+
+.selected {
+  border-radius: 50%;
+}

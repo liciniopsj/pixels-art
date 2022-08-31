@@ -39,12 +39,19 @@ function randomColor() {
 function rememberColors(){
     let recoveredObj = JSON.parse(localStorage.getItem('colorPalette'));
     if (typeof recoveredObj.C1 !== null && recoveredObj.C1 !== 'undefined'){
-    colorBox[1].style.backgroundColor = recoveredObj.C1;
-    colorBox[2].style.backgroundColor = recoveredObj.C2;
-    colorBox[3].style.backgroundColor = recoveredObj.C3;
+        colorBox[1].style.backgroundColor = recoveredObj.C1;
+        colorBox[2].style.backgroundColor = recoveredObj.C2;
+        colorBox[3].style.backgroundColor = recoveredObj.C3;
     }
+    
 }
 
+function initializeSelection() {
+    let blackColor = colorBox[0].classList;
+    blackColor.add('selected');
+}
+
+initializeSelection();
 if (localStorage.getItem('colorPalette') === null){
 initializeColors()
 };
