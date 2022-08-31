@@ -1,6 +1,17 @@
-let colorBox = document.getElementsByClassName('color');
+const colorBox = document.getElementsByClassName('color');
+const randomColorButton = document.getElementById('button-random-color');
 
-colorBox[0].style.backgroundColor = 'black';
-colorBox[1].style.backgroundColor = 'red';
-colorBox[2].style.backgroundColor = 'green';
-colorBox[3].style.backgroundColor = 'blue';
+function randomColor(){
+    colorBox[1].style.backgroundColor = randomHexColor();
+    colorBox[2].style.backgroundColor = randomHexColor();
+    colorBox[3].style.backgroundColor = randomHexColor();
+    
+}
+
+function randomHexColor(){
+    let hexCode = Math.floor(Math.random()*16777215).toString(16);
+    let hexResult = "#" + hexCode;
+    return hexResult;
+}
+
+randomColorButton.addEventListener('click', randomColor);
