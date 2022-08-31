@@ -5,7 +5,7 @@
 #color-palette {
   width: fit-content;
   height: fit-content;
-  margin-left: 365px;
+  margin-left: 550px;
 }
 
 .color {
@@ -21,13 +21,24 @@
 }
 
 .color:nth-of-type(2) {
-    background-color: red;
+  background-color: red;
 }
 
 .color:nth-of-type(3) {
-    background-color: green;
+  background-color: green;
 }
 
 .color:nth-of-type(4) {
-    background-color: blue;
+  background-color: blue;
+}
+
+#button-random-color {
+  margin-left: 605px;
+}
+
+#pixel-board {
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+  margin-left: 535px;
 }
