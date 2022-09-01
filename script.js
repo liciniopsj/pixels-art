@@ -45,9 +45,37 @@ function initializeSelection() {
   blackColor.add('selected');
 }
 
+function deselectColor (){
+    let previousColor = document.querySelector('.selected').classList;
+    previousColor.remove('selected');
+    
+}
+
+function selectColor(event){
+    let selectedColor = event.target.classList;
+    deselectColor();
+    selectedColor.add('selected');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 initializeSelection();
 if (localStorage.getItem('colorPalette') === null) {
-initializeColors()
+    initializeColors()
 };
 randomColorButton.addEventListener('click', randomColor);
+colorBox[0].addEventListener('click', selectColor);
+colorBox[1].addEventListener('click', selectColor);
+colorBox[2].addEventListener('click', selectColor);
+colorBox[3].addEventListener('click', selectColor);
 window.onload = rememberColors;
