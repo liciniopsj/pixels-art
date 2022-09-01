@@ -29,7 +29,7 @@
 }
 
 #button-random-color {
-  margin-left: 605px;
+  margin-left: 580px;
 }
 
 #pixel-board {
@@ -46,6 +46,7 @@
   display: inline-block;
   background-color: white;
 }
+
 
 .selected {
   border-radius: 50%;

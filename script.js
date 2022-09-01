@@ -1,7 +1,7 @@
 const colorBox = document.getElementsByClassName('color');
 const randomColorButton = document.getElementById('button-random-color');
 const pixels = document.querySelectorAll('.pixel');
-
+const clearBoardButton = document.getElementById('clear-board');
 colorBox[0].style.backgroundColor = 'black';
 
 function initializeColors() {
@@ -25,7 +25,6 @@ function storageColors() {
       C2: colorBox[2].style.backgroundColor,
       C3: colorBox[3].style.backgroundColor,
     };
-
     localStorage.setItem('colorPalette', JSON.stringify(colorsObj));
 }
 
@@ -63,20 +62,41 @@ function selectColor(event){
 function paint(event){
     let color = document.querySelector(".selected").style.backgroundColor;
     event.target.style.backgroundColor = color;
+    
 }
 
+function clearBoard() {
+    pixels.forEach(function(pixel){
+        pixel.style.backgroundColor = 'white';
+    })
+}
+
+// function storePainting(event){
+//   let board = {};
+  
+//   localStorage.setItem('pixelboard', JSON.stringify(board));
+// }
+
+clearBoard();
 initializeSelection();
 if (localStorage.getItem('colorPalette') === null) {
     initializeColors()
 };
 
 randomColorButton.addEventListener('click', randomColor);
+clearBoardButton.addEventListener('click', clearBoard);
+
 colorBox[0].addEventListener('click', selectColor);
 colorBox[1].addEventListener('click', selectColor);
 colorBox[2].addEventListener('click', selectColor);
 colorBox[3].addEventListener('click', selectColor);
+
 pixels.forEach(function(item) {
-    item.addEventListener('click', paint);
+    item.addEventListener('click', paint)
+});
+
+pixels.forEach(function(item) {
+    item.addEventListener('click', storePainting)
 });
 
 window.onload = rememberColors;
