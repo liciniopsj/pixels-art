@@ -1,5 +1,8 @@
 const colorBox = document.getElementsByClassName('color');
 const randomColorButton = document.getElementById('button-random-color');
+const pixels = document.querySelectorAll('.pixel');
+
+colorBox[0].style.backgroundColor = 'black';
 
 function initializeColors() {
     let colorsObj = {
@@ -57,25 +60,23 @@ function selectColor(event){
     selectedColor.add('selected');
 }
 
-
-
-
-
-
-
-
-
-
-
-
+function paint(event){
+    let color = document.querySelector(".selected").style.backgroundColor;
+    event.target.style.backgroundColor = color;
+}
 
 initializeSelection();
 if (localStorage.getItem('colorPalette') === null) {
     initializeColors()
 };
+
 randomColorButton.addEventListener('click', randomColor);
 colorBox[0].addEventListener('click', selectColor);
 colorBox[1].addEventListener('click', selectColor);
 colorBox[2].addEventListener('click', selectColor);
 colorBox[3].addEventListener('click', selectColor);
+pixels.forEach(function(item) {
+    item.addEventListener('click', paint);
+});
+
 window.onload = rememberColors;
