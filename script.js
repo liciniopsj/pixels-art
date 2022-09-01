@@ -95,8 +95,8 @@ pixels.forEach(function(item) {
     item.addEventListener('click', paint)
 });
 
-pixels.forEach(function(item) {
-    item.addEventListener('click', storePainting)
-});
+// pixels.forEach(function(item) {
+//     item.addEventListener('click', storePainting)
+// });
 
 window.onload = rememberColors;
